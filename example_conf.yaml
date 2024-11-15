@@ -1,0 +1,56 @@
+
+db:
+  endpoint: ""
+  user: ""
+  port: ""
+  db: ""
+  password: ""
+
+end: 300000
+
+folder: ""
+
+blocks:
+  do: True
+
+txos:
+  do: False
+  add_script: False
+  create_index: True
+  safe_mode: False
+
+coinjoin:
+  do: False
+
+colored_coins:
+  do: False
+
+alias:
+  do: False
+  insert_alias: False
+  block_step: 100
+  exclude_coinjoin: True
+  common_input_ownership: True
+  deposit_address: False
+  deposit_address_min_num_inputs: 25
+  change_address: True
+  round_output_value: True
+  round_output_value_x: 1
+  round_output_value_j: 1
+  force_merge_inputs: True
+
+transaction_edges:
+  do: False
+  block_step: 100
+  exclude_coinjoin: True
+  exclude_colored_coin: True
+  only_one_per_position: True
+
+undirected_transaction_edges:
+  do: False
+  block_step: 100
+
+features:
+  do: False
+  block_step: 100
+  do_cluster_features: False
