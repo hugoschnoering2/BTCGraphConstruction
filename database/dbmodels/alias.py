@@ -32,8 +32,9 @@ class Alias(Row):
 
     @classmethod
     def create_table(cls):
-        return f"CREATE TABLE {cls.table_name()} (node_id INTEGER NOT NULL UNIQUE, alias INTEGER NOT NULL)"
+        return f"CREATE TABLE IF NOT EXISTS {cls.table_name()} (node_id INTEGER NOT NULL UNIQUE, alias INTEGER NOT NULL)"
 
     @classmethod
     def drop_table(cls):
         return f"DROP TABLE IF EXISTS {cls.table_name()}"
+

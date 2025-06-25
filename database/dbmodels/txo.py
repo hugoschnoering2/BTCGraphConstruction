@@ -31,6 +31,14 @@ class Spent_TXO(Row):
         return f"DROP INDEX IF EXISTS {cls.table_name()}_block_num"
 
     @classmethod
+    def create_index_id(cls):
+        return f"CREATE INDEX IF NOT EXISTS {cls.table_name()}_txo_id ON {cls.table_name()} (txo_id)"
+
+    @classmethod
+    def drop_index_id(cls):
+        return f"DROP INDEX IF EXISTS {cls.table_name()}_txo_id"
+
+    @classmethod
     def get_max_block(cls):
         return f"SELECT max(block_num) AS max FROM {cls.table_name()}"
 
@@ -56,7 +64,7 @@ class Created_TXO(Row):
 
     @classmethod
     def create_index_block_num(cls):
-        return f"CREATE INDEX IF NOT EXISTS {cls.table_name()}_block_num ON created_txos (block_num)"
+        return f"CREATE INDEX IF NOT EXISTS {cls.table_name()}_block_num ON {cls.table_name()} (block_num)"
 
     @classmethod
     def drop_index_block_num(cls):
@@ -64,7 +72,7 @@ class Created_TXO(Row):
 
     @classmethod
     def create_index_id(cls):
-        return f"CREATE INDEX IF NOT EXISTS {cls.table_name()}_txo_id ON created_txos (txo_id)"
+        return f"CREATE INDEX IF NOT EXISTS {cls.table_name()}_txo_id ON {cls.table_name()} (txo_id)"
 
     @classmethod
     def drop_index_id(cls):

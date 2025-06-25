@@ -112,6 +112,14 @@ class ClusterTransactionEdge(Row):
         return "cluster_transaction_edges"
 
     @classmethod
+    def drop_index_a(cls):
+        return f"DROP INDEX IF EXISTS {cls.table_name()}_a"
+
+    @classmethod
+    def drop_index_alias(cls):
+        return f"DROP INDEX IF EXISTS {cls.table_name()}_alias"
+
+    @classmethod
     def create_table(cls):
         return (f"CREATE TABLE IF NOT EXISTS {cls.table_name()} (a INTEGER NOT NULL, b INTEGER NOT NULL, "
                 f"alias INTEGER NOT NULL, PRIMARY KEY (a,b)) ")

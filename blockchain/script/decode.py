@@ -1,9 +1,11 @@
 
+import os
 import yaml
 import binascii
 
 
-dict_op_codes = yaml.load(open("blockchain/script/hex2tokens.yaml", "r"), Loader=yaml.FullLoader)
+path_op_codes = os.path.join(os.path.dirname(os.path.abspath(__file__)), "hex2tokens.yaml")
+dict_op_codes = yaml.load(open(path_op_codes, "r"), Loader=yaml.FullLoader)
 
 
 def parse_script(script: bytes):
