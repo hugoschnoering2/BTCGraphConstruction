@@ -10,6 +10,10 @@ class Row:
         raise NotImplementedError
 
     @classmethod
+    def drop_table(cls):
+        return f"DROP TABLE IF EXISTS {cls.table_name()}"
+
+    @classmethod
     def exists(cls):
         return f"SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = '{cls.table_name()}')"
 
