@@ -1,0 +1,46 @@
+
+db:  # initial database
+  endpoint: ""
+  user: ""
+  port: ""
+  db: ""
+  password: ""
+
+hc_db:  # database that will be created to store the sample graph
+  endpoint: ""
+  user: ""
+  port: ""
+  db: ""
+  password: ""
+
+
+spans:
+  - start: 699000
+    end: 700000
+  - start: 698000
+    end: 699000
+
+sampling:
+  seed: 1
+  num_starts: 1
+  max_depth: 15
+  max_transactions_depth: 20000
+  exclude_coinjoin: false
+  exclude_colored_coin: false
+
+clustering:
+  block_step: 100
+  common_input_ownership: true
+  deposit_address: false
+  deposit_address_min_num_inputs: 25
+  change_address: true
+  round_output_value: true
+  round_output_value_x: 1
+  round_output_value_j: 1
+  force_merge_inputs: true
+
+transaction_edges:
+  block_step: 100
+
+features:
+  block_step: 100
